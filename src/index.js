@@ -28,13 +28,15 @@ export default class cmsUpload {
             }
           } else {
             window.alert(`Failed because: ${err}`);
-            reject("fail");
+            reject(err);
           }
         },
         onProgress(bytesUploaded, bytesTotal) {
         },
         onSuccess() {
-          resolve('success');
+          const url = upload.url.split('/upload');
+          const extension = upload.file.type.includes('image') ? upload.file.type.split('/')[1] : upload.file.type;
+          resolve(`${url[0] + url[1]}/${extension}`);
         },
       });
       upload.start();

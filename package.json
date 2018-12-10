@@ -2,13 +2,20 @@
   "name": "cms-upload",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "module": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx babel src/index.js > dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tus-js-client": "^1.5.1"
+    "tus-js-client": "^1.5.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0"
   }
 }
